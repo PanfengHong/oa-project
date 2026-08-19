@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../module.css'
+import { useEffect } from 'react'
+import { getProjects } from '../api'
 
 const projects = [
   { id: 'p-001', name: '自研 OA 平台', owner: '前端组', progress: 35 },
@@ -7,6 +9,16 @@ const projects = [
 ]
 
 export function ProjectListPage() {
+
+  useEffect(() => {
+    getProjects().then(res => {
+      console.log("projects", res)
+      if(res.code === 200) {
+        
+      }
+    })
+  }, [])
+
   return (
     <div className="oa-module-page">
       <h2>项目列表</h2>

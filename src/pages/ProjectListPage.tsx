@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import '../module.css'
 import { useEffect } from 'react'
 import { getProjects } from '../api'
+import type { ResponseData } from '@zdy-oa/utils'
 
 const projects = [
   { id: 'p-001', name: '自研 OA 平台', owner: '前端组', progress: 35 },
@@ -11,7 +12,7 @@ const projects = [
 export function ProjectListPage() {
 
   useEffect(() => {
-    getProjects().then(res => {
+    getProjects().then((res: ResponseData) => {
       console.log("projects", res)
       if(res.code === 200) {
         
